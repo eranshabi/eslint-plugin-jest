@@ -1,7 +1,7 @@
-import { RuleTester } from 'eslint';
+import { TSESLint } from '@typescript-eslint/experimental-utils';
 import rule from '../require-tothrow-message';
 
-const ruleTester = new RuleTester({
+const ruleTester = new TSESLint.RuleTester({
   parserOptions: {
     ecmaVersion: 8,
   },
@@ -61,6 +61,17 @@ ruleTester.run('require-tothrow-message', rule, {
   ],
 
   invalid: [
+    {
+      code: "expect(() => { throw new Error('a'); })[`toThrow`]();",
+      errors: [
+        {
+          messageId: 'requireRethrow',
+          data: { propertyName: 'toThrow' },
+          column: 41,
+          line: 1,
+        },
+      ],
+    },
     // Empty toThrow
     {
       code: "expect(() => { throw new Error('a'); }).toThrow();",

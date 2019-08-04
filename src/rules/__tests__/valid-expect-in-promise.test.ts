@@ -1,7 +1,7 @@
-import { RuleTester } from 'eslint';
+import { TSESLint } from '@typescript-eslint/experimental-utils';
 import rule from '../valid-expect-in-promise';
 
-const ruleTester = new RuleTester({
+const ruleTester = new TSESLint.RuleTester({
   parserOptions: {
     ecmaVersion: 8,
   },
@@ -19,6 +19,16 @@ ruleTester.run('valid-expect-in-promise', rule, {
       `,
       errors: [{ column: 12, endColumn: 15, messageId: 'returnPromise' }],
     },
+    // {
+    //   code: `
+    //      it('it1', () => {
+    //        somePromise['then'](() => {
+    //          expect(someThing).toEqual(true);
+    //        });
+    //      });
+    //   `,
+    //   errors: [{ column: 12, endColumn: 15, messageId: 'returnPromise' }],
+    // },
     {
       code: `
         it('it1', function() {

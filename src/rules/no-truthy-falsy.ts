@@ -1,17 +1,17 @@
 import { createRule, isExpectCall, parseExpectCall } from './tsUtils';
 
+// todo: refactor into "ban-matchers"
 export default createRule({
   name: __filename,
   meta: {
     docs: {
       category: 'Best Practices',
-      description: 'Suggest using toStrictEqual()',
+      description: 'Disallow using `toBeTruthy()` & `toBeFalsy()`',
       recommended: false,
     },
     messages: {
-      useToStrictEqual: 'Use toStrictEqual() instead',
+      avoidMessage: 'Avoid {{ methodName }}',
     },
-    fixable: 'code',
     type: 'suggestion',
     schema: [],
   },
@@ -24,16 +24,15 @@ export default createRule({
         }
 
         const { matcher } = parseExpectCall(node);
-
-        if (matcher && matcher.name === 'toEqual') {
-          context.report({
-            fix: fixer => [
-              fixer.replaceText(matcher.node.property, 'toStrictEqual'),
-            ],
-            messageId: 'useToStrictEqual',
-            node: matcher.node.property,
-          });
+        if (!matcher || !['toBeTruthy', 'toBeFalsy'].includes(matcher.name)) {
+          return;
         }
+
+        context.report({
+          data: { methodName: matcher.name }, // todo: rename to 'matcherName'
+          messageId: 'avoidMessage', // todo: rename to 'avoidMatcher'
+          node: matcher.node.property,
+        });
       },
     };
   },
