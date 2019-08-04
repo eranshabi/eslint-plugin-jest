@@ -1,7 +1,17 @@
 'use strict';
 
-// eslint-disable-next-line node/no-missing-require
-const { danger, fail } = require('danger');
+// shamelessly "borrowed" from https://github.com/danger/danger-js/blob/master/source/danger.d.ts b/c we danger via npx
+declare const danger: {
+  github: {
+    pr: {
+      body: string;
+    };
+  };
+  git: {
+    created_files: string[];
+    modified_files: string[];
+  };
+};
 
 // Ensure that people include a description on their PRs
 if (danger.github.pr.body.length === 0) {
