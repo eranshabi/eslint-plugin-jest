@@ -1,7 +1,8 @@
 'use strict';
 
 // shamelessly "borrowed" from https://github.com/danger/danger-js/blob/master/source/danger.d.ts b/c we danger via npx
-declare const danger: {
+// eslint-disable-next-line no-var
+declare var danger: {
   github: {
     pr: {
       body: string;
