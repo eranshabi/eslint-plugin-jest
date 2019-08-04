@@ -1,4 +1,3 @@
-// TODO: rename to utils.ts when TS migration is complete
 import { basename } from 'path';
 import {
   AST_NODE_TYPES,
