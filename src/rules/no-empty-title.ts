@@ -6,7 +6,7 @@ import {
   isStringNode,
   isTemplateLiteral,
   isTestCase,
-} from './tsUtils';
+} from './utils';
 
 export default createRule({
   name: __filename,

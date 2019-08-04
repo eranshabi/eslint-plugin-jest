@@ -8,7 +8,7 @@ import {
   createRule,
   isDescribe,
   isFunction,
-} from './tsUtils';
+} from './utils';
 
 const isAsync = (node: FunctionExpression): boolean => node.async;
 

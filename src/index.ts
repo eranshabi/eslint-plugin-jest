@@ -15,13 +15,7 @@ const importDefault = (moduleName: string) =>
 const rulesDir = join(__dirname, 'rules');
 
 const rules = readdirSync(rulesDir)
-  .filter(
-    rule =>
-      rule !== '__tests__' &&
-      rule !== 'util.js' &&
-      rule !== 'tsUtils.ts' &&
-      rule !== 'tsUtils.js',
-  )
+  .filter(rule => rule !== '__tests__' && rule !== 'utils.ts')
   .map(rule => parse(rule).name)
   .reduce(
     (acc, curr) =>

@@ -7,7 +7,7 @@ import {
   getAccessorValue,
   isExpectAccessor,
   isSupportedAccessor,
-} from './tsUtils';
+} from './utils';
 
 const isExpectAssertionsOrHasAssertionsCall = (expression: TSESTree.Node) => {
   if (

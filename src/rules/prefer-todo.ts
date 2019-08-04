@@ -13,7 +13,7 @@ import {
   isFunction,
   isStringNode,
   isTestCase,
-} from './tsUtils';
+} from './utils';
 
 function isOnlyTestTitle(node: TSESTree.CallExpression) {
   return node.arguments.length === 1;

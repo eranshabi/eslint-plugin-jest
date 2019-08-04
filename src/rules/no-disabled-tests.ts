@@ -1,5 +1,5 @@
-import { createRule } from './tsUtils';
-import { getNodeName, scopeHasLocalReference } from './tsUtils';
+import { createRule } from './utils';
+import { getNodeName, scopeHasLocalReference } from './utils';
 
 export default createRule({
   name: __filename,

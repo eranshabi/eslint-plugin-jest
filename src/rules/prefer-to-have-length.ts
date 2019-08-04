@@ -5,7 +5,7 @@ import {
   isParsedEqualityMatcherCall,
   isSpecificAccessorExpression,
   parseExpectCall,
-} from './tsUtils';
+} from './utils';
 
 export default createRule({
   name: __filename,

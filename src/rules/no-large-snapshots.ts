@@ -9,7 +9,7 @@ import {
   getAccessorValue,
   isExpectMember,
   isSupportedAccessor,
-} from './tsUtils';
+} from './utils';
 
 const reportOnViolation = (
   context: RuleContext,

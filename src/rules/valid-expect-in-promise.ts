@@ -14,7 +14,7 @@ import {
   isFunction,
   isSupportedAccessor,
   isValidExpectCall,
-} from './tsUtils';
+} from './utils';
 
 type ThenOrCatchCallExpression = KnownCallExpression<'then' | 'catch'>;
 

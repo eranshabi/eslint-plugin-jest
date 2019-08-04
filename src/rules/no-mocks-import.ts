@@ -1,6 +1,6 @@
 import { TSESTree } from '@typescript-eslint/experimental-utils';
 import { posix } from 'path';
-import { createRule, isLiteralNode } from './tsUtils';
+import { createRule, isLiteralNode } from './utils';
 
 const mocksDirName = '__mocks__';
 
