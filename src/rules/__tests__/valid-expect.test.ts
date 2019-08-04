@@ -7,24 +7,6 @@ const ruleTester = new TSESLint.RuleTester({
   },
 });
 
-type PossibleName = 'world' | 'sunshine';
-
-interface Mx {
-  // isNamed(name: PossibleName, or: ...PossibleName[]): boolean;
-  isNamed(name: PossibleName, ...or: PossibleName[]): boolean;
-  isNamed(...names: [PossibleName, ...PossibleName[]]): boolean;
-}
-
-const fn = (mx: Mx) => {
-  mx.isNamed('world', 'world');
-};
-
-fn({
-  isNamed(...names: [PossibleName, ...PossibleName[]]) {
-    return true;
-  },
-});
-
 ruleTester.run('valid-expect', rule, {
   valid: [
     'expect("something").toEqual("else");',
@@ -90,7 +72,6 @@ ruleTester.run('valid-expect', rule, {
     });`,
     },
   ],
-
   invalid: [
     /*
     'test("valid-expect", async () => { await expect(Promise.reject(2)).not.resolves.toBeDefined(); });',
