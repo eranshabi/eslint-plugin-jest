@@ -1,10 +1,10 @@
-import { basename } from 'path';
 import {
   AST_NODE_TYPES,
   ESLintUtils,
   TSESLint,
   TSESTree,
 } from '@typescript-eslint/experimental-utils';
+import { basename } from 'path';
 import { version } from '../../package.json';
 
 const REPO_URL = 'https://github.com/jest-community/eslint-plugin-jest';
